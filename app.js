@@ -1,6 +1,7 @@
 const express= require('express');
 const { method } = require('lodash');
 const morgan = require('morgan');
+const dbURI = 'mongodb://tropicthunder:<tropicthunder>@<hostname>/?ssl=true&replicaSet=atlas-11qgdv-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0'
 
 //express app
 const app = express();
