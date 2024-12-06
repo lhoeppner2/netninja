@@ -3,28 +3,32 @@
 
 <%- include('./partials/head.ejs') %>
 
-<body>
+    <body>
+
+        <%- include('./partials/nav.ejs') %>
 
 
-    <%- include('./partials/nav.ejs') %>
-    
+            <div class="blogs content">
+                <h2>All Blogs</h2>
 
-    <div class="blogs content">
-        <h2>All Blogs</h2>
+                <% if (blogs.length> 0) { %>
+                    <% blogs.forEach(blog=> { %>
+                        <a class="single" href="/blogs/<%= blog._id %>">
+                            <h3 class="title">
+                                <%= blog.title %>
+                            </h3>
+                            <p class="snippet">
+                                <%= blog.snippet %>
+                            </p>
+                        </a>
+                        <% }) %>
+                            <% } else { %>
+                                <p>There are no blogs to display...</p>
+                                <% } %>
+            </div>
 
-        <% if (blogs.length > 0) { %>
-            <% blogs.forEach(blog => { %>
+            <%- include('./partials/footer.ejs') %>
 
-                <h3 class="title"><%= blog.title %></h3>
-                <p class="snippet"><%= blog.snippet %></p>
-            <% }) %>
-        <% } else { %>
-            <p>There are no blogs to display.</p>
-        <% } %>
-    </div>
-
-    <%- include('./partials/footer.ejs') %>
-
-</body>
+    </body>
 
 </html>
